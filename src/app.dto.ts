@@ -1,7 +1,7 @@
 export type UploadedObjectsListItem = {
   fileName: string;
   key: string;
-  displaySize: number;
+  displaySize: string;
   sizeInBytes: number;
 };
 
