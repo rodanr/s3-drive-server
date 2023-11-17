@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { S3 } from 'aws-sdk';
 import { FileType } from './s3.types';
+import { generateS3FileName } from 'src/utils';
 
 @Injectable()
 export class S3Service {
@@ -18,9 +19,11 @@ export class S3Service {
   }
 
   getUploadPresignedURL(): Promise<string> {
+    const folderLocation = 'rodan'; // uploads categorized by username
+
     const params = {
       Bucket: this.bucketName,
-      Key: 'rodan2.png',
+      Key: `${folderLocation}/${generateS3FileName()}`,
       ContentType: FileType.IMAGE_PNG,
     };
 
