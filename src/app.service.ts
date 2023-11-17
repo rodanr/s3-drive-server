@@ -24,7 +24,7 @@ export class AppService {
           fileName: 'fileNameDummy',
           displaySize: getDisplaySizeFromBytes(Size),
           sizeInBytes: Size,
-          key: Key,
+          key: encodeURIComponent(Key),
           lastModified: LastModified,
         }),
       ) || [];
