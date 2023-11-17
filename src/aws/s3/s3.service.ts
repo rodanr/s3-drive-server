@@ -25,6 +25,7 @@ export class S3Service {
       Bucket: this.bucketName,
       Key: `${folderLocation}/${generateS3FileName()}${FileExtension.PNG}`,
       ContentType: FileType.IMAGE_PNG,
+      Expires: 1800, // 30 minutes
     };
 
     return new Promise((resolve, reject) =>
