@@ -1,13 +1,9 @@
 import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
-import { S3Service } from './aws/s3/s3.service';
 
 @Controller()
 export class AppController {
-  constructor(
-    private readonly appService: AppService,
-    private readonly s3Service: S3Service,
-  ) {}
+  constructor(private readonly appService: AppService) {}
 
   @Get('/health')
   getHealth(): string {
@@ -16,6 +12,11 @@ export class AppController {
 
   @Get('/upload-presigned-url')
   getUploadPresignedURL() {
-    return this.s3Service.getUploadPresignedURL();
+    return this.appService.getUploadPresignedURL();
+  }
+
+  @Get(`/uploaded-objects`)
+  getUploadedObjects() {
+    return this.appService.getUploadedObjects();
   }
 }
