@@ -4,6 +4,7 @@ import {
   UploadedObjectsListItem,
   UploadedObjectsListResponse,
 } from './app.dto';
+import { getDisplaySizeFromBytes } from './utils';
 
 @Injectable()
 export class AppService {
@@ -21,7 +22,7 @@ export class AppService {
       contents?.map(
         ({ Key, Size }): UploadedObjectsListItem => ({
           fileName: 'fileNameDummy',
-          displaySize: Size,
+          displaySize: getDisplaySizeFromBytes(Size),
           sizeInBytes: Size,
           key: Key,
         }),
