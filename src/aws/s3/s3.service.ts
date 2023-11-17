@@ -46,4 +46,18 @@ export class S3Service {
       ),
     );
   }
+
+  getDownloadPresignedURL(objectKey: string): Promise<string> {
+    const params = {
+      Bucket: this.bucketName,
+      Key: objectKey,
+      Expires: 1800, // 30 minutes
+    };
+
+    return new Promise((resolve, reject) =>
+      this.s3.getSignedUrl('getObject', params, (err, url) => {
+        err ? reject(err) : resolve(url);
+      }),
+    );
+  }
 }
