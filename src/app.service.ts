@@ -32,6 +32,6 @@ export class AppService {
   }
 
   async getUploadedObjectFile(key: string) {
-    return 'url' + key;
+    return this.s3Service.getDownloadPresignedURL(key);
   }
 }
