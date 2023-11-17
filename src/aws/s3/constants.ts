@@ -1,4 +1,4 @@
-export const FILE_SIZE = {
+export const FILE_SIZE_IN_BYTES = {
   ONE_GB: 1073741824,
   ONE_MB: 1048576,
 };
