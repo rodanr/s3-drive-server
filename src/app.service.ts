@@ -30,4 +30,8 @@ export class AppService {
 
     return uploadedObjects;
   }
+
+  async getUploadedObjectFile(key: string) {
+    return 'url' + key;
+  }
 }
