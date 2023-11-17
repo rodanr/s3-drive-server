@@ -20,11 +20,12 @@ export class AppService {
 
     const uploadedObjects: UploadedObjectsListResponse =
       contents?.map(
-        ({ Key, Size }): UploadedObjectsListItem => ({
+        ({ Key, Size, LastModified }): UploadedObjectsListItem => ({
           fileName: 'fileNameDummy',
           displaySize: getDisplaySizeFromBytes(Size),
           sizeInBytes: Size,
           key: Key,
+          lastModified: LastModified,
         }),
       ) || [];
 
