@@ -20,7 +20,7 @@ export class AppService {
     const uploadedObjects: UploadedObjectsListResponse =
       contents?.map(
         ({ Key, Size }): UploadedObjectsListItem => ({
-          fileName: Key,
+          fileName: 'fileNameDummy',
           displaySize: Size,
           sizeInBytes: Size,
           key: Key,
