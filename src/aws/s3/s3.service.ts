@@ -33,4 +33,17 @@ export class S3Service {
       }),
     );
   }
+
+  getObjectsList(): Promise<S3.ListObjectsV2Output> {
+    const params = {
+      Bucket: this.bucketName,
+      Prefix: 'rodan',
+    };
+
+    return new Promise((resolve, reject) =>
+      this.s3.listObjectsV2(params, (err, data) =>
+        err ? reject(err) : resolve(data),
+      ),
+    );
+  }
 }
