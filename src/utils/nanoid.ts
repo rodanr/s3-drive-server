@@ -1,3 +1,5 @@
+import { nanoid } from 'nanoid';
+
 export const generateS3FileName: () => string = () => {
-  return 'rodan.png';
+  return nanoid();
 };
